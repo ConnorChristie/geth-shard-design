@@ -1,0 +1,1341 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Language" content="en" />
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#4188c9">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+    <!-- Generated: 2018-04-16 09:29:05 +0200 -->
+    <title>Homepage - tabler.github.io - a responsive, flat and full featured admin template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+    <script src="./assets/js/require.min.js"></script>
+    <script>
+      requirejs.config({
+          baseUrl: '.'
+      });
+    </script>
+    <!-- Dashboard Core -->
+    <link href="./assets/css/dashboard.css" rel="stylesheet" />
+    <script src="./assets/js/dashboard.js"></script>
+    <!-- c3.js Charts Plugin -->
+    <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
+    <script src="./assets/plugins/charts-c3/plugin.js"></script>
+    <!-- Google Maps Plugin -->
+    <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet" />
+    <script src="./assets/plugins/maps-google/plugin.js"></script>
+    <!-- Input Mask Plugin -->
+    <script src="./assets/plugins/input-mask/plugin.js"></script>
+  </head>
+  <body class="">
+    <div class="page">
+      <div class="page-main">
+        <div class="header py-4">
+          <div class="container">
+            <div class="d-flex">
+              <a class="header-brand" href="./index.html">
+                Ethereum Stats
+              </a>
+              <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
+                <span class="header-toggler-icon"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-3 ml-auto">
+                <form class="input-icon my-3 my-lg-0">
+                  <input type="search" class="form-control header-search" placeholder="Search&hellip;" tabindex="1">
+                  <div class="input-icon-addon">
+                    <i class="fe fe-search"></i>
+                  </div>
+                </form>
+              </div>
+              <div class="col-lg order-lg-first">
+                <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                  <li class="nav-item">
+                    <a href="./index.html" class="nav-link active"><i class="fe fe-box"></i> Shards</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="my-3 my-md-5">
+          <div class="container">
+            <div class="page-header">
+              <h1 class="page-title">
+                Shard 43
+              </h1>
+            </div>
+            <div class="row row-cards">
+              <div class="col-md-6 col-lg-12">
+                <div class="row row-cards">
+                  <div class="col-sm-6 col-lg-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Cross-Shard Interactions</h3>
+                      </div>
+                      <div class="card-body">
+                        <div id="chart-cross-comm1" style="height: 100%;"></div>
+                      </div>
+                    </div>
+                    <style>
+                    #circle circle {
+                      fill: none;
+                      pointer-events: all;
+                    }
+
+                    .group {
+                      font: 10px sans-serif;
+                    }
+
+                    .group path {
+                      fill-opacity: .5;
+                    }
+
+                    path.chord {
+                      stroke: #000;
+                      stroke-width: .25px;
+                    }
+
+                    #circle:hover path.fade {
+                      display: none;
+                    }
+
+                    </style>
+                    <script>
+                      require(['d3', 'jquery'], function (d3, $) {
+                        var width = 500,
+                            height = 500,
+                            outerRadius = Math.min(width, height) / 2 - 10,
+                            innerRadius = outerRadius - 24;
+
+                        var formatPercent = d3.format(".1%");
+
+                        var arc = d3.svg.arc()
+                            .innerRadius(innerRadius)
+                            .outerRadius(outerRadius);
+
+                        var layout = d3.layout.chord()
+                            .padding(.04)
+                            .sortSubgroups(d3.descending)
+                            .sortChords(d3.ascending);
+
+                        var path = d3.svg.chord()
+                            .radius(innerRadius);
+
+                        var svg = d3.select("#chart-cross-comm1").append("svg")
+                            .attr("width", width)
+                            .attr("height", height)
+                          .append("g")
+                            .attr("id", "circle")
+                            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+                        svg.append("circle")
+                            .attr("r", outerRadius);
+
+                        var shards = [
+                          {name: "Shard 43", color: "rgb(117, 107, 177)"},
+                          {name: "Shard 3", color: "rgb(49, 163, 84)"},
+                          {name: "Shard 85", color: "rgb(107, 174, 214)"},
+                          {name: "Shard 22", color: "rgb(253, 174, 107)"}
+                        ];
+
+                        d3.csv("https://bost.ocks.org/mike/uberdata/cities.csv", function(error, cities) {
+                        d3.json("https://bost.ocks.org/mike/uberdata/matrix.json", function(error1, matrix) {
+                          if (error) throw error;
+
+                          // Compute the chord layout.
+                          layout.matrix([[0, 0.5, 0.1, 0.2], [0.1, 0, 0.1, 0.4], [0.6, 0, 0, 0.2], [0.0, 0.2, 0.3, 0.0]]);
+
+                          // Add a group per neighborhood.
+                          var group = svg.selectAll(".group")
+                              .data(layout.groups)
+                            .enter().append("g")
+                              .attr("class", "group")
+                              .on("mouseover", mouseover);
+
+                          // Add a mouseover title.
+                          group.append("title").text(function(d, i) {
+                            return shards[i].name + ": " + formatPercent(d.value) + " of origins";
+                          });
+
+                          // Add the group arc.
+                          var groupPath = group.append("path")
+                              .attr("id", function(d, i) { return "group" + i; })
+                              .attr("d", arc)
+                              .style("fill", function(d, i) { return shards[i].color; });
+
+                          // Add a text label.
+                          var groupText = group.append("text")
+                              .attr("x", 6)
+                              .attr("dy", 15);
+
+                          groupText.append("textPath")
+                              .attr("xlink:href", function(d, i) { return "#group" + i; })
+                              .text(function(d, i) { return shards[i].name; });
+
+                          // Remove the labels that don't fit. :(
+                          groupText.filter(function(d, i) { return groupPath[0][i].getTotalLength() / 2 - 16 < this.getComputedTextLength(); })
+                              .remove();
+
+                          // Add the chords.
+                          var chord = svg.selectAll(".chord")
+                              .data(layout.chords)
+                            .enter().append("path")
+                              .attr("class", "chord")
+                              .style("fill", function(d) { return shards[d.source.index].color; })
+                              .attr("d", path);
+
+                          // Add an elaborate mouseover title for each chord.
+                          chord.append("title").text(function(d) {
+                            return shards[d.source.index].name
+                                + " → " + shards[d.target.index].name
+                                + ": " + formatPercent(d.source.value)
+                                + "\n" + shards[d.target.index].name
+                                + " → " + shards[d.source.index].name
+                                + ": " + formatPercent(d.target.value);
+                          });
+
+                          function mouseover(d, i) {
+                            chord.classed("fade", function(p) {
+                              return p.source.index != i
+                                  && p.target.index != i;
+                            });
+                          }
+                        });
+                        });
+                      });
+                    </script>
+                  </div>
+
+                  <div class="col-sm-6 col-lg-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Cross-Shard Interactions</h3>
+                      </div>
+                      <div class="card-body">
+                        <svg id="chart-cross-comm2" width="500" height="500"></svg>
+                      </div>
+                    </div>
+                    <style>
+                    .links line {
+                      stroke: #999;
+                      stroke-opacity: 0.6;
+                    }
+                    
+                    .nodes circle {
+                      stroke: #fff;
+                      stroke-width: 1.5px;
+                    }
+                    
+                    </style>
+                    <script>
+                      require(['d4', 'jquery'], function (d3, $) {
+                        var svg = d3.select("#chart-cross-comm2"),
+                            width = +svg.attr("width"),
+                            height = +svg.attr("height");
+
+                        var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+                        var simulation = d3.forceSimulation()
+                            .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(200).strength(1))
+                            .force("charge", d3.forceManyBody())
+                            .force("center", d3.forceCenter(width / 2, height / 2))
+                            .force("collision", d3.forceCollide(60));
+
+                        var graph = {
+                            "nodes": [
+                              {"id": "Shard 22", "group": 40},
+                              {"id": "Shard 85", "group": 40},
+                              {"id": "Shard 3", "group": 40},
+                              {"id": "Shard 43", "group": 60}
+                            ],
+                            "links": [
+                              {"source": "Shard 43", "target": "Shard 22", "value": 20},
+                              {"source": "Shard 43", "target": "Shard 85", "value": 20},
+                              {"source": "Shard 43", "target": "Shard 3", "value": 20},
+                              {"source": "Shard 22", "target": "Shard 85", "value": 8},
+                              {"source": "Shard 3", "target": "Shard 85", "value": 10}
+                            ]
+                          };
+
+                          var link = svg.append("g")
+                              .attr("class", "links")
+                            .selectAll("line")
+                            .data(graph.links)
+                            .enter().append("line")
+                              .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+
+                          var nodes = svg.append("g")
+                              .attr("class", "nodes")
+                            .selectAll("circle")
+                            .data(graph.nodes)
+                            .enter().append("g")
+                              .call(d3.drag()
+                                .on("start", dragstarted)
+                                .on("drag", dragged)
+                                .on("end", dragended));
+
+                          var node = nodes.append("circle")
+                              .attr("r", function (d) { return d.group; })
+                              .attr("fill", function(d) { return color(d.group); });
+
+                          var nodeText = nodes.append('text')
+                              .attr('text-anchor', 'middle')
+                              .attr('alignment-baseline', 'middle')
+                              .style('font-size', function (d) { return (d.group / 3) + "px"; })
+                              .attr('fill', 'white')
+                              .text(d => d.id);
+
+                          node.append("title")
+                              .text(function(d) { return d.id; });
+
+                          simulation
+                              .nodes(graph.nodes)
+                              .on("tick", ticked);
+
+                          simulation.force("link")
+                              .links(graph.links);
+
+                          function ticked() {
+                            link
+                                .attr("x1", function(d) { return d.source.x; })
+                                .attr("y1", function(d) { return d.source.y; })
+                                .attr("x2", function(d) { return d.target.x; })
+                                .attr("y2", function(d) { return d.target.y; });
+
+                            node
+                                .attr("cx", function(d) { return d.x; })
+                                .attr("cy", function(d) { return d.y; });
+
+                            nodeText
+                                .attr("dx", function(d) { return d.x; })
+                                .attr("dy", function(d) { return d.y; });
+                          }
+
+                          function dragstarted(d) {
+                            if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+                            d.fx = d.x;
+                            d.fy = d.y;
+                          }
+
+                          function dragged(d) {
+                            d.fx = d3.event.x;
+                            d.fy = d3.event.y;
+                          }
+
+                          function dragended(d) {
+                            if (!d3.event.active) simulation.alphaTarget(0);
+                            d.fx = null;
+                            d.fy = null;
+                          }
+                        });
+                    </script>
+                  </div>
+                  <!-- <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-value float-right text-green">-3%</div>
+                        <h3 class="mb-1">423</h3>
+                        <div class="text-muted">Users online</div>
+                      </div>
+                      <div class="card-chart-bg">
+                        <div id="chart-bg-users-3" style="height: 100%"></div>
+                      </div>
+                    </div>
+                    <script>
+                      require(['c3', 'jquery'], function (c3, $) {
+                      	$(document).ready(function() {
+                      		var chart = c3.generate({
+                      			bindto: '#chart-bg-users-3',
+                      			padding: {
+                      				bottom: -10,
+                      				left: -1,
+                      				right: -1
+                      			},
+                      			data: {
+                      				names: {
+                      					data1: 'Users online'
+                      				},
+                      				columns: [
+                      					['data1', 30, 40, 10, 40, 12, 22, 40]
+                      				],
+                      				type: 'area'
+                      			},
+                      			legend: {
+                      				show: false
+                      			},
+                      			transition: {
+                      				duration: 0
+                      			},
+                      			point: {
+                      				show: false
+                      			},
+                      			tooltip: {
+                      				format: {
+                      					title: function (x) {
+                      						return '';
+                      					}
+                      				}
+                      			},
+                      			axis: {
+                      				y: {
+                      					padding: {
+                      						bottom: 0,
+                      					},
+                      					show: false,
+                      					tick: {
+                      						outer: false
+                      					}
+                      				},
+                      				x: {
+                      					padding: {
+                      						left: 0,
+                      						right: 0
+                      					},
+                      					show: false
+                      				}
+                      			},
+                      			color: {
+                      				pattern: ['#5eba00']
+                      			}
+                      		});
+                      	});
+                      });
+                    </script>
+                  </div>
+                  <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-value float-right text-yellow">9%</div>
+                        <h3 class="mb-1">423</h3>
+                        <div class="text-muted">Users online</div>
+                      </div>
+                      <div class="card-chart-bg">
+                        <div id="chart-bg-users-4" style="height: 100%"></div>
+                      </div>
+                    </div>
+                    <script>
+                      require(['c3', 'jquery'], function (c3, $) {
+                      	$(document).ready(function() {
+                      		var chart = c3.generate({
+                      			bindto: '#chart-bg-users-4',
+                      			padding: {
+                      				bottom: -10,
+                      				left: -1,
+                      				right: -1
+                      			},
+                      			data: {
+                      				names: {
+                      					data1: 'Users online'
+                      				},
+                      				columns: [
+                      					['data1', 30, 40, 10, 40, 12, 22, 40]
+                      				],
+                      				type: 'area'
+                      			},
+                      			legend: {
+                      				show: false
+                      			},
+                      			transition: {
+                      				duration: 0
+                      			},
+                      			point: {
+                      				show: false
+                      			},
+                      			tooltip: {
+                      				format: {
+                      					title: function (x) {
+                      						return '';
+                      					}
+                      				}
+                      			},
+                      			axis: {
+                      				y: {
+                      					padding: {
+                      						bottom: 0,
+                      					},
+                      					show: false,
+                      					tick: {
+                      						outer: false
+                      					}
+                      				},
+                      				x: {
+                      					padding: {
+                      						left: 0,
+                      						right: 0
+                      					},
+                      					show: false
+                      				}
+                      			},
+                      			color: {
+                      				pattern: ['#f1c40f']
+                      			}
+                      		});
+                      	});
+                      });
+                    </script>
+                  </div> -->
+                </div>
+              </div>
+              <!-- <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Development Activity</h3>
+                  </div>
+                  <div id="chart-development-activity" style="height: 10rem"></div>
+                  <div class="table-responsive">
+                    <table class="table card-table table-striped table-vcenter">
+                      <thead>
+                        <tr>
+                          <th colspan="2">User</th>
+                          <th>Commit</th>
+                          <th>Date</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="w-1"><span class="avatar" style="background-image: url(./demo/faces/male/9.jpg)"></span></td>
+                          <td>Ronald Bradley</td>
+                          <td>Initial commit</td>
+                          <td class="text-nowrap">May 6, 2018</td>
+                          <td class="w-1"><a href="#" class="icon"><i class="fe fe-trash"></i></a></td>
+                        </tr>
+                        <tr>
+                          <td><span class="avatar">BM</span></td>
+                          <td>Russell Gibson</td>
+                          <td>Main structure</td>
+                          <td class="text-nowrap">April 22, 2018</td>
+                          <td><a href="#" class="icon"><i class="fe fe-trash"></i></a></td>
+                        </tr>
+                        <tr>
+                          <td><span class="avatar" style="background-image: url(./demo/faces/female/1.jpg)"></span></td>
+                          <td>Beverly Armstrong</td>
+                          <td>Left sidebar adjustments</td>
+                          <td class="text-nowrap">April 15, 2018</td>
+                          <td><a href="#" class="icon"><i class="fe fe-trash"></i></a></td>
+                        </tr>
+                        <tr>
+                          <td><span class="avatar" style="background-image: url(./demo/faces/male/4.jpg)"></span></td>
+                          <td>Bobby Knight</td>
+                          <td>Topbar dropdown style</td>
+                          <td class="text-nowrap">April 8, 2018</td>
+                          <td><a href="#" class="icon"><i class="fe fe-trash"></i></a></td>
+                        </tr>
+                        <tr>
+                          <td><span class="avatar" style="background-image: url(./demo/faces/female/11.jpg)"></span></td>
+                          <td>Sharon Wells</td>
+                          <td>Fixes #625</td>
+                          <td class="text-nowrap">April 9, 2018</td>
+                          <td><a href="#" class="icon"><i class="fe fe-trash"></i></a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <script>
+                  require(['c3', 'jquery'], function(c3, $) {
+                  	$(document).ready(function(){
+                  		var chart = c3.generate({
+                  			bindto: '#chart-development-activity', // id of chart wrapper
+                  			data: {
+                  				columns: [
+                  				    // each columns data
+                  					['data1', 0, 5, 1, 2, 7, 5, 6, 8, 24, 7, 12, 5, 6, 3, 2, 2, 6, 30, 10, 10, 15, 14, 47, 65, 55]
+                  				],
+                  				type: 'area', // default type of chart
+                  				groups: [
+                  					[ 'data1', 'data2', 'data3']
+                  				],
+                  				colors: {
+                  					'data1': tabler.colors["blue"]
+                  				},
+                  				names: {
+                  				    // name of each serie
+                  					'data1': 'Purchases'
+                  				}
+                  			},
+                  			axis: {
+                  				y: {
+                  					padding: {
+                  						bottom: 0,
+                  					},
+                  					show: false,
+                  						tick: {
+                  						outer: false
+                  					}
+                  				},
+                  				x: {
+                  					padding: {
+                  						left: 0,
+                  						right: 0
+                  					},
+                  					show: false
+                  				}
+                  			},
+                  			legend: {
+                  				position: 'inset',
+                  				padding: 0,
+                  				inset: {
+                                      anchor: 'top-left',
+                  					x: 20,
+                  					y: 8,
+                  					step: 10
+                  				}
+                  			},
+                  			tooltip: {
+                  				format: {
+                  					title: function (x) {
+                  						return '';
+                  					}
+                  				}
+                  			},
+                  			padding: {
+                  				bottom: 0,
+                  				left: -1,
+                  				right: -1
+                  			},
+                  			point: {
+                  				show: false
+                  			}
+                  		});
+                  	});
+                  });
+                </script>
+              </div>
+              <div class="col-md-6">
+                <div class="alert alert-primary">Are you in trouble? <a href="./docs/index.html" class="alert-link">Read our documentation</a> with code samples.</div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Chart title</h3>
+                      </div>
+                      <div class="card-body">
+                        <div id="chart-donut" style="height: 12rem;"></div>
+                      </div>
+                    </div>
+                    <script>
+                      require(['c3', 'jquery'], function(c3, $) {
+                      	$(document).ready(function(){
+                      		var chart = c3.generate({
+                      			bindto: '#chart-donut', // id of chart wrapper
+                      			data: {
+                      				columns: [
+                      				    // each columns data
+                      					['data1', 63],
+                      					['data2', 37]
+                      				],
+                      				type: 'donut', // default type of chart
+                      				colors: {
+                      					'data1': tabler.colors["green"],
+                      					'data2': tabler.colors["green-light"]
+                      				},
+                      				names: {
+                      				    // name of each serie
+                      					'data1': 'Maximum',
+                      					'data2': 'Minimum'
+                      				}
+                      			},
+                      			axis: {
+                      			},
+                      			legend: {
+                                      show: false, //hide legend
+                      			},
+                      			padding: {
+                      				bottom: 0,
+                      				top: 0
+                      			},
+                      		});
+                      	});
+                      });
+                    </script>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Chart title</h3>
+                      </div>
+                      <div class="card-body">
+                        <div id="chart-pie" style="height: 12rem;"></div>
+                      </div>
+                    </div>
+                    <script>
+                      require(['c3', 'jquery'], function(c3, $) {
+                      	$(document).ready(function(){
+                      		var chart = c3.generate({
+                      			bindto: '#chart-pie', // id of chart wrapper
+                      			data: {
+                      				columns: [
+                      				    // each columns data
+                      					['data1', 63],
+                      					['data2', 44],
+                      					['data3', 12],
+                      					['data4', 14]
+                      				],
+                      				type: 'pie', // default type of chart
+                      				colors: {
+                      					'data1': tabler.colors["blue-darker"],
+                      					'data2': tabler.colors["blue"],
+                      					'data3': tabler.colors["blue-light"],
+                      					'data4': tabler.colors["blue-lighter"]
+                      				},
+                      				names: {
+                      				    // name of each serie
+                      					'data1': 'A',
+                      					'data2': 'B',
+                      					'data3': 'C',
+                      					'data4': 'D'
+                      				}
+                      			},
+                      			axis: {
+                      			},
+                      			legend: {
+                                      show: false, //hide legend
+                      			},
+                      			padding: {
+                      				bottom: 0,
+                      				top: 0
+                      			},
+                      		});
+                      	});
+                      });
+                    </script>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <div class="h5">New feedback</div>
+                        <div class="display-4 font-weight-bold mb-4">62</div>
+                        <div class="progress progress-sm">
+                          <div class="progress-bar bg-red" style="width: 28%"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <div class="h5">Today profit</div>
+                        <div class="display-4 font-weight-bold mb-4">$652</div>
+                        <div class="progress progress-sm">
+                          <div class="progress-bar bg-green" style="width: 84%"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3">
+                <div class="card p-3">
+                  <div class="d-flex align-items-center">
+                    <span class="stamp stamp-md bg-blue mr-3">
+                      <i class="fe fe-dollar-sign"></i>
+                    </span>
+                    <div>
+                      <h4 class="m-0"><a href="javascript:void(0)">132 <small>Sales</small></a></h4>
+                      <small class="text-muted">12 waiting payments</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3">
+                <div class="card p-3">
+                  <div class="d-flex align-items-center">
+                    <span class="stamp stamp-md bg-green mr-3">
+                      <i class="fe fe-shopping-cart"></i>
+                    </span>
+                    <div>
+                      <h4 class="m-0"><a href="javascript:void(0)">78 <small>Orders</small></a></h4>
+                      <small class="text-muted">32 shipped</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3">
+                <div class="card p-3">
+                  <div class="d-flex align-items-center">
+                    <span class="stamp stamp-md bg-red mr-3">
+                      <i class="fe fe-users"></i>
+                    </span>
+                    <div>
+                      <h4 class="m-0"><a href="javascript:void(0)">1,352 <small>Members</small></a></h4>
+                      <small class="text-muted">163 registered today</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3">
+                <div class="card p-3">
+                  <div class="d-flex align-items-center">
+                    <span class="stamp stamp-md bg-yellow mr-3">
+                      <i class="fe fe-message-square"></i>
+                    </span>
+                    <div>
+                      <h4 class="m-0"><a href="javascript:void(0)">132 <small>Comments</small></a></h4>
+                      <small class="text-muted">16 waiting</small>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+            <!-- <div class="row row-cards row-deck">
+              <div class="col-lg-6">
+                <div class="card card-aside">
+                  <a href="#" class="card-aside-column" style="background-image: url(./demo/photos/david-klaasen-54203-500.jpg)"></a>
+                  <div class="card-body d-flex flex-column">
+                    <h4><a href="#">And this isn't my nose. This is a false one.</a></h4>
+                    <div class="text-muted">Look, my liege! The Knights Who Say Ni demand a sacrifice! …Are you suggesting that coconuts migr...</div>
+                    <div class="d-flex align-items-center pt-5 mt-auto">
+                      <div class="avatar avatar-md mr-3" style="background-image: url(./demo/faces/female/18.jpg)"></div>
+                      <div>
+                        <a href="./profile.html" class="text-default">Rose Bradley</a>
+                        <small class="d-block text-muted">3 days ago</small>
+                      </div>
+                      <div class="ml-auto text-muted">
+                        <a href="javascript:void(0)" class="icon d-none d-md-inline-block ml-3"><i class="fe fe-heart mr-1"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="card card-aside">
+                  <a href="#" class="card-aside-column" style="background-image: url(./demo/photos/david-marcu-114194-500.jpg)"></a>
+                  <div class="card-body d-flex flex-column">
+                    <h4><a href="#">Well, I didn't vote for you.</a></h4>
+                    <div class="text-muted">Well, we did do the nose. Why? Shut up! Will you shut up?! You don't frighten us, English pig-dog...</div>
+                    <div class="d-flex align-items-center pt-5 mt-auto">
+                      <div class="avatar avatar-md mr-3" style="background-image: url(./demo/faces/male/16.jpg)"></div>
+                      <div>
+                        <a href="./profile.html" class="text-default">Peter Richards</a>
+                        <small class="d-block text-muted">3 days ago</small>
+                      </div>
+                      <div class="ml-auto text-muted">
+                        <a href="javascript:void(0)" class="icon d-none d-md-inline-block ml-3"><i class="fe fe-heart mr-1"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row row-cards row-deck">
+              <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title">Browser Stats</h4>
+                  </div>
+                  <table class="table card-table">
+                    <tr>
+                      <td width="1"><i class="fa fa-chrome text-muted"></i></td>
+                      <td>Google Chrome</td>
+                      <td class="text-right"><span class="text-muted">23%</span></td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-firefox text-muted"></i></td>
+                      <td>Mozila Firefox</td>
+                      <td class="text-right"><span class="text-muted">15%</span></td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-safari text-muted"></i></td>
+                      <td>Apple Safari</td>
+                      <td class="text-right"><span class="text-muted">7%</span></td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-internet-explorer text-muted"></i></td>
+                      <td>Internet Explorer</td>
+                      <td class="text-right"><span class="text-muted">9%</span></td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-opera text-muted"></i></td>
+                      <td>Opera mini</td>
+                      <td class="text-right"><span class="text-muted">23%</span></td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-edge text-muted"></i></td>
+                      <td>Microsoft edge</td>
+                      <td class="text-right"><span class="text-muted">9%</span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                  <div class="card-header">
+                    <h2 class="card-title">Projects</h2>
+                  </div>
+                  <table class="table card-table">
+                    <tr>
+                      <td>Admin Template</td>
+                      <td class="text-right">
+                        <span class="badge badge-default">65%</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Landing Page</td>
+                      <td class="text-right">
+                        <span class="badge badge-success">Finished</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Backend UI</td>
+                      <td class="text-right">
+                        <span class="badge badge-danger">Rejected</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Personal Blog</td>
+                      <td class="text-right">
+                        <span class="badge badge-default">40%</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>E-mail Templates</td>
+                      <td class="text-right">
+                        <span class="badge badge-default">13%</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Corporate Website</td>
+                      <td class="text-right">
+                        <span class="badge badge-warning">Pending</span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Members</h3>
+                  </div>
+                  <div class="card-body o-auto" style="height: 15rem">
+                    <ul class="list-unstyled list-separated">
+                      <li class="list-separated-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span class="avatar avatar-md d-block" style="background-image: url(demo/faces/female/12.jpg)"></span>
+                          </div>
+                          <div class="col">
+                            <div>
+                              <a href="javascript:void(0)" class="text-inherit">Amanda Hunt</a>
+                            </div>
+                            <small class="d-block item-except text-sm text-muted h-1x">amanda_hunt@example.com</small>
+                          </div>
+                          <div class="col-auto">
+                            <div class="item-action dropdown">
+                              <a href="javascript:void(0)" data-toggle="dropdown" class="icon"><i class="fe fe-more-vertical"></i></a>
+                              <div class="dropdown-menu dropdown-menu-right">
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-separated-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span class="avatar avatar-md d-block" style="background-image: url(demo/faces/female/21.jpg)"></span>
+                          </div>
+                          <div class="col">
+                            <div>
+                              <a href="javascript:void(0)" class="text-inherit">Laura Weaver</a>
+                            </div>
+                            <small class="d-block item-except text-sm text-muted h-1x">lauraweaver@example.com</small>
+                          </div>
+                          <div class="col-auto">
+                            <div class="item-action dropdown">
+                              <a href="javascript:void(0)" data-toggle="dropdown" class="icon"><i class="fe fe-more-vertical"></i></a>
+                              <div class="dropdown-menu dropdown-menu-right">
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-separated-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span class="avatar avatar-md d-block" style="background-image: url(demo/faces/female/29.jpg)"></span>
+                          </div>
+                          <div class="col">
+                            <div>
+                              <a href="javascript:void(0)" class="text-inherit">Margaret Berry</a>
+                            </div>
+                            <small class="d-block item-except text-sm text-muted h-1x">margaret88@example.com</small>
+                          </div>
+                          <div class="col-auto">
+                            <div class="item-action dropdown">
+                              <a href="javascript:void(0)" data-toggle="dropdown" class="icon"><i class="fe fe-more-vertical"></i></a>
+                              <div class="dropdown-menu dropdown-menu-right">
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-separated-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span class="avatar avatar-md d-block" style="background-image: url(demo/faces/female/2.jpg)"></span>
+                          </div>
+                          <div class="col">
+                            <div>
+                              <a href="javascript:void(0)" class="text-inherit">Nancy Herrera</a>
+                            </div>
+                            <small class="d-block item-except text-sm text-muted h-1x">nancy_83@example.com</small>
+                          </div>
+                          <div class="col-auto">
+                            <div class="item-action dropdown">
+                              <a href="javascript:void(0)" data-toggle="dropdown" class="icon"><i class="fe fe-more-vertical"></i></a>
+                              <div class="dropdown-menu dropdown-menu-right">
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-separated-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span class="avatar avatar-md d-block" style="background-image: url(demo/faces/male/34.jpg)"></span>
+                          </div>
+                          <div class="col">
+                            <div>
+                              <a href="javascript:void(0)" class="text-inherit">Edward Larson</a>
+                            </div>
+                            <small class="d-block item-except text-sm text-muted h-1x">edward90@example.com</small>
+                          </div>
+                          <div class="col-auto">
+                            <div class="item-action dropdown">
+                              <a href="javascript:void(0)" data-toggle="dropdown" class="icon"><i class="fe fe-more-vertical"></i></a>
+                              <div class="dropdown-menu dropdown-menu-right">
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-separated-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span class="avatar avatar-md d-block" style="background-image: url(demo/faces/female/11.jpg)"></span>
+                          </div>
+                          <div class="col">
+                            <div>
+                              <a href="javascript:void(0)" class="text-inherit">Joan Hanson</a>
+                            </div>
+                            <small class="d-block item-except text-sm text-muted h-1x">joan.hanson@example.com</small>
+                          </div>
+                          <div class="col-auto">
+                            <div class="item-action dropdown">
+                              <a href="javascript:void(0)" data-toggle="dropdown" class="icon"><i class="fe fe-more-vertical"></i></a>
+                              <div class="dropdown-menu dropdown-menu-right">
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Invoices</h3>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table card-table table-vcenter text-nowrap">
+                      <thead>
+                        <tr>
+                          <th class="w-1">No.</th>
+                          <th>Invoice Subject</th>
+                          <th>Client</th>
+                          <th>VAT No.</th>
+                          <th>Created</th>
+                          <th>Status</th>
+                          <th>Price</th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="text-muted">001401</span></td>
+                          <td><a href="invoice.html" class="text-inherit">Design Works</a></td>
+                          <td>
+                            Carlson Limited
+                          </td>
+                          <td>
+                            87956621
+                          </td>
+                          <td>
+                            15 Dec 2017
+                          </td>
+                          <td>
+                            <span class="status-icon bg-success"></span> Paid
+                          </td>
+                          <td>$887</td>
+                          <td class="text-right">
+                            <a href="javascript:void(0)" class="btn btn-secondary btn-sm">Manage</a>
+                            <div class="dropdown">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">Actions</button>
+                            </div>
+                          </td>
+                          <td>
+                            <a class="icon" href="javascript:void(0)">
+                              <i class="fe fe-edit"></i>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="text-muted">001402</span></td>
+                          <td><a href="invoice.html" class="text-inherit">UX Wireframes</a></td>
+                          <td>
+                            Adobe
+                          </td>
+                          <td>
+                            87956421
+                          </td>
+                          <td>
+                            12 Apr 2017
+                          </td>
+                          <td>
+                            <span class="status-icon bg-warning"></span> Pending
+                          </td>
+                          <td>$1200</td>
+                          <td class="text-right">
+                            <a href="javascript:void(0)" class="btn btn-secondary btn-sm">Manage</a>
+                            <div class="dropdown">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">Actions</button>
+                            </div>
+                          </td>
+                          <td>
+                            <a class="icon" href="javascript:void(0)">
+                              <i class="fe fe-edit"></i>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="text-muted">001403</span></td>
+                          <td><a href="invoice.html" class="text-inherit">New Dashboard</a></td>
+                          <td>
+                            Bluewolf
+                          </td>
+                          <td>
+                            87952621
+                          </td>
+                          <td>
+                            23 Oct 2017
+                          </td>
+                          <td>
+                            <span class="status-icon bg-warning"></span> Pending
+                          </td>
+                          <td>$534</td>
+                          <td class="text-right">
+                            <a href="javascript:void(0)" class="btn btn-secondary btn-sm">Manage</a>
+                            <div class="dropdown">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">Actions</button>
+                            </div>
+                          </td>
+                          <td>
+                            <a class="icon" href="javascript:void(0)">
+                              <i class="fe fe-edit"></i>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="text-muted">001404</span></td>
+                          <td><a href="invoice.html" class="text-inherit">Landing Page</a></td>
+                          <td>
+                            Salesforce
+                          </td>
+                          <td>
+                            87953421
+                          </td>
+                          <td>
+                            2 Sep 2017
+                          </td>
+                          <td>
+                            <span class="status-icon bg-secondary"></span> Due in 2 Weeks
+                          </td>
+                          <td>$1500</td>
+                          <td class="text-right">
+                            <a href="javascript:void(0)" class="btn btn-secondary btn-sm">Manage</a>
+                            <div class="dropdown">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">Actions</button>
+                            </div>
+                          </td>
+                          <td>
+                            <a class="icon" href="javascript:void(0)">
+                              <i class="fe fe-edit"></i>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="text-muted">001405</span></td>
+                          <td><a href="invoice.html" class="text-inherit">Marketing Templates</a></td>
+                          <td>
+                            Printic
+                          </td>
+                          <td>
+                            87956621
+                          </td>
+                          <td>
+                            29 Jan 2018
+                          </td>
+                          <td>
+                            <span class="status-icon bg-danger"></span> Paid Today
+                          </td>
+                          <td>$648</td>
+                          <td class="text-right">
+                            <a href="javascript:void(0)" class="btn btn-secondary btn-sm">Manage</a>
+                            <div class="dropdown">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">Actions</button>
+                            </div>
+                          </td>
+                          <td>
+                            <a class="icon" href="javascript:void(0)">
+                              <i class="fe fe-edit"></i>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="text-muted">001406</span></td>
+                          <td><a href="invoice.html" class="text-inherit">Sales Presentation</a></td>
+                          <td>
+                            Tabdaq
+                          </td>
+                          <td>
+                            87956621
+                          </td>
+                          <td>
+                            4 Feb 2018
+                          </td>
+                          <td>
+                            <span class="status-icon bg-secondary"></span> Due in 3 Weeks
+                          </td>
+                          <td>$300</td>
+                          <td class="text-right">
+                            <a href="javascript:void(0)" class="btn btn-secondary btn-sm">Manage</a>
+                            <div class="dropdown">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">Actions</button>
+                            </div>
+                          </td>
+                          <td>
+                            <a class="icon" href="javascript:void(0)">
+                              <i class="fe fe-edit"></i>
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="row">
+                <div class="col-6 col-md-3">
+                  <ul class="list-unstyled mb-0">
+                    <li><a href="#">First link</a></li>
+                    <li><a href="#">Second link</a></li>
+                  </ul>
+                </div>
+                <div class="col-6 col-md-3">
+                  <ul class="list-unstyled mb-0">
+                    <li><a href="#">Third link</a></li>
+                    <li><a href="#">Fourth link</a></li>
+                  </ul>
+                </div>
+                <div class="col-6 col-md-3">
+                  <ul class="list-unstyled mb-0">
+                    <li><a href="#">Fifth link</a></li>
+                    <li><a href="#">Sixth link</a></li>
+                  </ul>
+                </div>
+                <div class="col-6 col-md-3">
+                  <ul class="list-unstyled mb-0">
+                    <li><a href="#">Other link</a></li>
+                    <li><a href="#">Last link</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0">
+              Premium and Open Source dashboard template with responsive and high quality UI. For Free!
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="container">
+          <div class="row align-items-center flex-row-reverse">
+            <div class="col-auto ml-lg-auto">
+              <div class="row align-items-center">
+                <div class="col-auto">
+                  <ul class="list-inline list-inline-dots mb-0">
+                    <li class="list-inline-item"><a href="./docs/index.html">Documentation</a></li>
+                    <li class="list-inline-item"><a href="./faq.html">FAQ</a></li>
+                  </ul>
+                </div>
+                <div class="col-auto">
+                  <a href="https://github.com/tabler/tabler" class="btn btn-outline-primary btn-sm">Source code</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+              Copyright © 2018 <a href=".">Tabler</a>. Theme by <a href="https://codecalm.net" target="_blank">codecalm.net</a> All rights reserved.
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
