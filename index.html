@@ -15,7 +15,7 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
     <!-- Generated: 2018-04-16 09:29:05 +0200 -->
-    <title>Homepage - tabler.github.io - a responsive, flat and full featured admin template</title>
+    <title>Shards</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
     <script src="./assets/js/require.min.js"></script>
@@ -152,6 +152,47 @@
                   </div>
                 </div>
               </div>
+              <!-- <div class="col-12">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="input-icon mb-3">
+                      <input type="text" class="form-control" placeholder="Search shards...">
+                      <span class="input-icon-addon">
+                        <i class="fe fe-search"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <select name="country" id="select-block" class="form-control custom-select" placeholder="Select block...">
+                      <option label=" "></option>
+                      <option value="5536175">5536175</option>
+                      <option value="5536174">5536174</option>
+                      <option value="5536173">5536173</option>
+                      <option value="5536172">5536172</option>
+                    </select>
+                    <script>
+                      require(['jquery', 'selectize'], function ($, selectize) {
+                        $(document).ready(function () {
+                          $('#select-block').selectize({
+                              render: {
+                                  option: function (data, escape) {
+                                      return '<div>' +
+                                          '<span class="title">' + escape(data.text) + '</span>' +
+                                          '</div>';
+                                  },
+                                  item: function (data, escape) {
+                                      return '<div>Block ' +
+                                          escape(data.text) +
+                                          '</div>';
+                                  }
+                              }
+                          });
+                        });
+                      });
+                    </script>
+                  </div>
+                </div>
+              </div> -->
               <div class="col-12">
                 <div class="card">
                   <div class="table-responsive">
@@ -161,43 +202,11 @@
                           <th>Shard</th>
                           <th>Length</th>
                           <th>Nodes</th>
-                          <th>Transactions</th>
+                          <th>Transactions / Blocks</th>
                           <th class="text-right">Activity</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>
-                            <div><a href="shard.html">Shard 13</a></div>
-                            <div class="small text-muted">
-                              Created: May 2, 2018
-                            </div>
-                          </td>
-                          <td>
-                            143 collations
-                          </td>
-                          <td>
-                            22 nodes
-                          </td>
-                          <td>
-                            <div class="clearfix">
-                              <div class="float-left">
-                                <strong>13%</strong>
-                              </div>
-                              <div class="float-right">
-                                <small class="text-muted">7 / 52 txns</small>
-                              </div>
-                            </div>
-                            <div class="progress progress-xs">
-                              <div class="progress-bar bg-green" role="progressbar" style="width: 13%"
-						     aria-valuenow="13" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td class="text-right">
-                            <div class="small text-muted">Last collation</div>
-                            <div>4 minutes ago</div>
-                          </td>
-                        </tr>
                         <tr>
                           <td>
                             <div><a href="shard.html">Shard 19</a></div>
@@ -214,47 +223,15 @@
                           <td>
                             <div class="clearfix">
                               <div class="float-left">
-                                <strong>44%</strong>
+                                <strong>49%</strong>
                               </div>
                               <div class="float-right">
-                                <small class="text-muted">23 / 52 txns</small>
+                                <small class="text-muted">115 txns / 5 blocks</small>
                               </div>
                             </div>
                             <div class="progress progress-xs">
-                              <div class="progress-bar bg-yellow" role="progressbar" style="width: 44%"
-						     aria-valuenow="44" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td class="text-right">
-                            <div class="small text-muted">Last collation</div>
-                            <div>4 minutes ago</div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div><a href="shard.html">Shard 38</a></div>
-                            <div class="small text-muted">
-                              Created: May 2, 2018
-                            </div>
-                          </td>
-                          <td>
-                            74 collations
-                          </td>
-                          <td>
-                            13 nodes
-                          </td>
-                          <td>
-                            <div class="clearfix">
-                              <div class="float-left">
-                                <strong>10%</strong>
-                              </div>
-                              <div class="float-right">
-                                <small class="text-muted">5 / 52 txns</small>
-                              </div>
-                            </div>
-                            <div class="progress progress-xs">
-                              <div class="progress-bar bg-green" role="progressbar" style="width: 10%"
-						     aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                              <div class="progress-bar bg-orange" role="progressbar" style="width: 49%"
+						     aria-valuenow="49" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                           </td>
                           <td class="text-right">
@@ -278,15 +255,79 @@
                           <td>
                             <div class="clearfix">
                               <div class="float-left">
-                                <strong>23%</strong>
+                                <strong>26%</strong>
                               </div>
                               <div class="float-right">
-                                <small class="text-muted">12 / 52 txns</small>
+                                <small class="text-muted">60 txns / 5 blocks</small>
                               </div>
                             </div>
                             <div class="progress progress-xs">
-                              <div class="progress-bar bg-green" role="progressbar" style="width: 23%"
-						     aria-valuenow="23" aria-valuemin="0" aria-valuemax="100"></div>
+                              <div class="progress-bar bg-yellow" role="progressbar" style="width: 26%"
+						     aria-valuenow="26" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td class="text-right">
+                            <div class="small text-muted">Last collation</div>
+                            <div>4 minutes ago</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div><a href="shard.html">Shard 13</a></div>
+                            <div class="small text-muted">
+                              Created: May 2, 2018
+                            </div>
+                          </td>
+                          <td>
+                            143 collations
+                          </td>
+                          <td>
+                            22 nodes
+                          </td>
+                          <td>
+                            <div class="clearfix">
+                              <div class="float-left">
+                                <strong>15%</strong>
+                              </div>
+                              <div class="float-right">
+                                <small class="text-muted">35 txns / 5 blocks</small>
+                              </div>
+                            </div>
+                            <div class="progress progress-xs">
+                              <div class="progress-bar bg-green" role="progressbar" style="width: 15%"
+						     aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td class="text-right">
+                            <div class="small text-muted">Last collation</div>
+                            <div>4 minutes ago</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div><a href="shard.html">Shard 38</a></div>
+                            <div class="small text-muted">
+                              Created: May 2, 2018
+                            </div>
+                          </td>
+                          <td>
+                            74 collations
+                          </td>
+                          <td>
+                            13 nodes
+                          </td>
+                          <td>
+                            <div class="clearfix">
+                              <div class="float-left">
+                                <strong>11%</strong>
+                              </div>
+                              <div class="float-right">
+                                <small class="text-muted">25 txns / 5 blocks</small>
+                              </div>
+                            </div>
+                            <div class="progress progress-xs">
+                              <div class="progress-bar bg-green" role="progressbar" style="width: 11%"
+						     aria-valuenow="11" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                           </td>
                           <td class="text-right">
@@ -376,86 +417,6 @@
                       			},
                       			color: {
                       				pattern: ['#467fcf']
-                      			}
-                      		});
-                      	});
-                      });
-                    </script>
-                  </div>
-                  <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="card-value float-right text-red">-3%</div>
-                        <h3 class="mb-1">Shard 53</h3>
-                        <div class="text-muted">Txns & Nodes</div>
-                      </div>
-                      <div class="card-chart-bg">
-                        <div id="chart-bg-users-2" style="height: 100%"></div>
-                      </div>
-                    </div>
-                    <script>
-                      require(['c3', 'jquery'], function (c3, $) {
-                      	$(document).ready(function() {
-                      		var chart = c3.generate({
-                      			bindto: '#chart-bg-users-2',
-                      			padding: {
-                      				bottom: -10,
-                      				left: -1,
-                      				right: -1
-                      			},
-                      			data: {
-                              columns: [
-                                  // each columns data
-                                ['data1', 11, 8, 15, 18, 19, 17],
-                                ['data2', 7, 7, 5, 7, 9, 12]
-                              ],
-                              type: 'area', // default type of chart
-                              colors: {
-                                'data1': tabler.colors["blue"],
-                                'data2': tabler.colors["pink"]
-                              },
-                              names: {
-                                  // name of each serie
-                                'data1': 'Txns',
-                                'data2': 'Nodes'
-                              }
-                            },
-                      			legend: {
-                      				show: false
-                      			},
-                      			transition: {
-                      				duration: 0
-                      			},
-                      			point: {
-                      				show: false
-                      			},
-                      			tooltip: {
-                      				format: {
-                      					title: function (x) {
-                      						return 'Period ' + (x + 1);
-                      					}
-                      				}
-                      			},
-                      			axis: {
-                      				y: {
-                      					padding: {
-                      						bottom: 0,
-                      					},
-                      					show: false,
-                      					tick: {
-                      						outer: false
-                      					}
-                      				},
-                      				x: {
-                      					padding: {
-                      						left: 0,
-                      						right: 0
-                      					},
-                      					show: false
-                      				}
-                      			},
-                      			color: {
-                      				pattern: ['#e74c3c']
                       			}
                       		});
                       	});

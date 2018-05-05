@@ -1,351 +1,201 @@
 <!doctype html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="Content-Language" content="en" />
-    <meta name="msapplication-TileColor" content="#2d89ef">
-    <meta name="theme-color" content="#4188c9">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
-    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
-    <!-- Generated: 2018-04-16 09:29:05 +0200 -->
-    <title>Homepage - tabler.github.io - a responsive, flat and full featured admin template</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
-    <script src="./assets/js/require.min.js"></script>
-    <script>
-      requirejs.config({
-          baseUrl: '.'
-      });
-    </script>
-    <!-- Dashboard Core -->
-    <link href="./assets/css/dashboard.css" rel="stylesheet" />
-    <script src="./assets/js/dashboard.js"></script>
-    <!-- c3.js Charts Plugin -->
-    <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
-    <script src="./assets/plugins/charts-c3/plugin.js"></script>
-    <!-- Google Maps Plugin -->
-    <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet" />
-    <script src="./assets/plugins/maps-google/plugin.js"></script>
-    <!-- Input Mask Plugin -->
-    <script src="./assets/plugins/input-mask/plugin.js"></script>
-  </head>
-  <body class="">
-    <div class="page">
-      <div class="page-main">
-        <div class="header py-4">
-          <div class="container">
-            <div class="d-flex">
-              <a class="header-brand" href="./index.html">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#4188c9">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+  <!-- Generated: 2018-04-16 09:29:05 +0200 -->
+  <title>Shard 43</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+  <script src="./assets/js/require.min.js"></script>
+  <script>
+    requirejs.config({
+      baseUrl: '.'
+    });
+  </script>
+  <!-- Dashboard Core -->
+  <link href="./assets/css/dashboard.css" rel="stylesheet" />
+  <script src="./assets/js/dashboard.js"></script>
+  <!-- c3.js Charts Plugin -->
+  <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
+  <script src="./assets/plugins/charts-c3/plugin.js"></script>
+  <!-- Google Maps Plugin -->
+  <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet" />
+  <script src="./assets/plugins/maps-google/plugin.js"></script>
+  <!-- Input Mask Plugin -->
+  <script src="./assets/plugins/input-mask/plugin.js"></script>
+</head>
+
+<body class="">
+  <div class="page">
+    <div class="page-main">
+      <div class="header py-4">
+        <div class="container">
+          <div class="d-flex">
+            <a class="header-brand" href="./index.html">
                 Ethereum Stats
               </a>
-              <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
+            <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
                 <span class="header-toggler-icon"></span>
               </a>
+          </div>
+        </div>
+      </div>
+      <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-3 ml-auto">
+              <form class="input-icon my-3 my-lg-0">
+                <input type="search" class="form-control header-search" placeholder="Search&hellip;" tabindex="1">
+                <div class="input-icon-addon">
+                  <i class="fe fe-search"></i>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg order-lg-first">
+              <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link active"><i class="fe fe-box"></i> Shards</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-        <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-3 ml-auto">
-                <form class="input-icon my-3 my-lg-0">
-                  <input type="search" class="form-control header-search" placeholder="Search&hellip;" tabindex="1">
-                  <div class="input-icon-addon">
-                    <i class="fe fe-search"></i>
-                  </div>
-                </form>
-              </div>
-              <div class="col-lg order-lg-first">
-                <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
-                  <li class="nav-item">
-                    <a href="./index.html" class="nav-link active"><i class="fe fe-box"></i> Shards</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+      </div>
+      <div class="my-3 my-md-5">
+        <div class="container">
+          <div class="page-header">
+            <h1 class="page-title">
+              Shard 43
+            </h1>
           </div>
-        </div>
-        <div class="my-3 my-md-5">
-          <div class="container">
-            <div class="page-header">
-              <h1 class="page-title">
-                Shard 43
-              </h1>
-            </div>
-            <div class="row row-cards">
-              <div class="col-md-6 col-lg-12">
-                <div class="row row-cards">
-                  <div class="col-sm-6 col-lg-6">
-                    <div class="card">
-                      <div class="card-header">
-                        <h3 class="card-title">Cross-Shard Interactions</h3>
-                      </div>
-                      <div class="card-body">
-                        <div id="chart-cross-comm1" style="height: 100%;"></div>
-                      </div>
-                    </div>
-                    <style>
-                    #circle circle {
-                      fill: none;
-                      pointer-events: all;
-                    }
-
-                    .group {
-                      font: 10px sans-serif;
-                    }
-
-                    .group path {
-                      fill-opacity: .5;
-                    }
-
-                    path.chord {
-                      stroke: #000;
-                      stroke-width: .25px;
-                    }
-
-                    #circle:hover path.fade {
-                      display: none;
-                    }
-
-                    </style>
-                    <script>
-                      require(['d3', 'jquery'], function (d3, $) {
-                        var width = 500,
-                            height = 500,
-                            outerRadius = Math.min(width, height) / 2 - 10,
-                            innerRadius = outerRadius - 24;
-
-                        var formatPercent = d3.format(".1%");
-
-                        var arc = d3.svg.arc()
-                            .innerRadius(innerRadius)
-                            .outerRadius(outerRadius);
-
-                        var layout = d3.layout.chord()
-                            .padding(.04)
-                            .sortSubgroups(d3.descending)
-                            .sortChords(d3.ascending);
-
-                        var path = d3.svg.chord()
-                            .radius(innerRadius);
-
-                        var svg = d3.select("#chart-cross-comm1").append("svg")
-                            .attr("width", width)
-                            .attr("height", height)
-                          .append("g")
-                            .attr("id", "circle")
-                            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-                        svg.append("circle")
-                            .attr("r", outerRadius);
-
-                        var shards = [
-                          {name: "Shard 43", color: "rgb(117, 107, 177)"},
-                          {name: "Shard 3", color: "rgb(49, 163, 84)"},
-                          {name: "Shard 85", color: "rgb(107, 174, 214)"},
-                          {name: "Shard 22", color: "rgb(253, 174, 107)"}
-                        ];
-
-                        d3.csv("https://bost.ocks.org/mike/uberdata/cities.csv", function(error, cities) {
-                        d3.json("https://bost.ocks.org/mike/uberdata/matrix.json", function(error1, matrix) {
-                          if (error) throw error;
-
-                          // Compute the chord layout.
-                          layout.matrix([[0, 0.5, 0.1, 0.2], [0.1, 0, 0.1, 0.4], [0.6, 0, 0, 0.2], [0.0, 0.2, 0.3, 0.0]]);
-
-                          // Add a group per neighborhood.
-                          var group = svg.selectAll(".group")
-                              .data(layout.groups)
-                            .enter().append("g")
-                              .attr("class", "group")
-                              .on("mouseover", mouseover);
-
-                          // Add a mouseover title.
-                          group.append("title").text(function(d, i) {
-                            return shards[i].name + ": " + formatPercent(d.value) + " of origins";
-                          });
-
-                          // Add the group arc.
-                          var groupPath = group.append("path")
-                              .attr("id", function(d, i) { return "group" + i; })
-                              .attr("d", arc)
-                              .style("fill", function(d, i) { return shards[i].color; });
-
-                          // Add a text label.
-                          var groupText = group.append("text")
-                              .attr("x", 6)
-                              .attr("dy", 15);
-
-                          groupText.append("textPath")
-                              .attr("xlink:href", function(d, i) { return "#group" + i; })
-                              .text(function(d, i) { return shards[i].name; });
-
-                          // Remove the labels that don't fit. :(
-                          groupText.filter(function(d, i) { return groupPath[0][i].getTotalLength() / 2 - 16 < this.getComputedTextLength(); })
-                              .remove();
-
-                          // Add the chords.
-                          var chord = svg.selectAll(".chord")
-                              .data(layout.chords)
-                            .enter().append("path")
-                              .attr("class", "chord")
-                              .style("fill", function(d) { return shards[d.source.index].color; })
-                              .attr("d", path);
-
-                          // Add an elaborate mouseover title for each chord.
-                          chord.append("title").text(function(d) {
-                            return shards[d.source.index].name
-                                + " → " + shards[d.target.index].name
-                                + ": " + formatPercent(d.source.value)
-                                + "\n" + shards[d.target.index].name
-                                + " → " + shards[d.source.index].name
-                                + ": " + formatPercent(d.target.value);
-                          });
-
-                          function mouseover(d, i) {
-                            chord.classed("fade", function(p) {
-                              return p.source.index != i
-                                  && p.target.index != i;
-                            });
-                          }
-                        });
-                        });
+          <div class="row row-cards row-deck">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Collations</h3>
+                </div>
+                <div class="table-responsive">
+                  <table id="collations" class="table card-table table-hover table-vcenter text-nowrap">
+                    <thead>
+                      <tr>
+                        <th class="w-1">Height</th>
+                        <th>Age</th>
+                        <th>Collator</th>
+                        <th class="text-center">Txns</th>
+                        <th class="text-center">X-Shard Txns</th>
+                        <th>Avg Gas Price</th>
+                        <th>Reward</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="cursor: pointer;">
+                        <td><span class="text-muted">8</span></td>
+                        <td>6 secs ago</td>
+                        <td>
+                          <a href="https://ropsten.etherscan.io/address/0x744d70FDBE2Ba4CF95131626614a1763DF805B9E">0x384926294083f</a>...
+                        </td>
+                        <td class="text-center">
+                          13
+                        </td>
+                        <td class="text-center">
+                          4
+                        </td>
+                        <td>
+                          8.45 Gwei
+                        </td>
+                        <td>
+                          1.45 Eth
+                        </td>
+                      </tr>
+                      <tr style="cursor: pointer;">
+                        <td><span class="text-muted">7</span></td>
+                        <td>18 secs ago</td>
+                        <td>
+                          <a href="https://ropsten.etherscan.io/address/0x744d70FDBE2Ba4CF95131626614a1763DF805B9E">0x897a39203c0b2</a>...
+                        </td>
+                        <td class="text-center">
+                            10
+                        </td>
+                        <td class="text-center">
+                            2
+                        </td>
+                        <td>
+                          7.21 Gwei
+                        </td>
+                        <td>
+                          1.02 Eth
+                        </td>
+                      </tr>
+                      <tr style="cursor: pointer;">
+                        <td><span class="text-muted">6</span></td>
+                        <td>29 secs ago</td>
+                        <td>
+                          <a href="https://ropsten.etherscan.io/address/0x744d70FDBE2Ba4CF95131626614a1763DF805B9E">0x27959d92a83b9</a>...
+                        </td>
+                        <td class="text-center">
+                            29
+                        </td>
+                        <td class="text-center">
+                            5
+                        </td>
+                        <td>
+                          9.63 Gwei
+                        </td>
+                        <td>
+                          1.92 Eth
+                        </td>
+                      </tr>
+                      <tr style="cursor: pointer;">
+                        <td><span class="text-muted">5</span></td>
+                        <td>36 secs ago</td>
+                        <td>
+                          <a href="https://ropsten.etherscan.io/address/0x744d70FDBE2Ba4CF95131626614a1763DF805B9E">0x3134f954AFf721</a>...
+                        </td>
+                        <td class="text-center">
+                            17
+                        </td>
+                        <td class="text-center">
+                            3
+                        </td>
+                        <td>
+                          6.14 Gwei
+                        </td>
+                        <td>
+                          1.63 Eth
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <script>
+                    require(['jquery'], function ($) {
+                      $(document).ready(function() {
+                        $("#collations tr").click(() => window.location = 'collation.html');
                       });
-                    </script>
-                  </div>
+                    });
+                  </script>
+                </div>
+              </div>
+            </div>
 
-                  <div class="col-sm-6 col-lg-6">
-                    <div class="card">
-                      <div class="card-header">
-                        <h3 class="card-title">Cross-Shard Interactions</h3>
-                      </div>
-                      <div class="card-body">
-                        <svg id="chart-cross-comm2" width="500" height="500"></svg>
-                      </div>
-                    </div>
-                    <style>
-                    .links line {
-                      stroke: #999;
-                      stroke-opacity: 0.6;
-                    }
-                    
-                    .nodes circle {
-                      stroke: #fff;
-                      stroke-width: 1.5px;
-                    }
-                    
-                    </style>
-                    <script>
-                      require(['d4', 'jquery'], function (d3, $) {
-                        var svg = d3.select("#chart-cross-comm2"),
-                            width = +svg.attr("width"),
-                            height = +svg.attr("height");
+            <div class="col-md-6 col-lg-12">
+              <div class="row row-cards">
+                
 
-                        var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-                        var simulation = d3.forceSimulation()
-                            .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(200).strength(1))
-                            .force("charge", d3.forceManyBody())
-                            .force("center", d3.forceCenter(width / 2, height / 2))
-                            .force("collision", d3.forceCollide(60));
-
-                        var graph = {
-                            "nodes": [
-                              {"id": "Shard 22", "group": 40},
-                              {"id": "Shard 85", "group": 40},
-                              {"id": "Shard 3", "group": 40},
-                              {"id": "Shard 43", "group": 60}
-                            ],
-                            "links": [
-                              {"source": "Shard 43", "target": "Shard 22", "value": 20},
-                              {"source": "Shard 43", "target": "Shard 85", "value": 20},
-                              {"source": "Shard 43", "target": "Shard 3", "value": 20},
-                              {"source": "Shard 22", "target": "Shard 85", "value": 8},
-                              {"source": "Shard 3", "target": "Shard 85", "value": 10}
-                            ]
-                          };
-
-                          var link = svg.append("g")
-                              .attr("class", "links")
-                            .selectAll("line")
-                            .data(graph.links)
-                            .enter().append("line")
-                              .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
-
-                          var nodes = svg.append("g")
-                              .attr("class", "nodes")
-                            .selectAll("circle")
-                            .data(graph.nodes)
-                            .enter().append("g")
-                              .call(d3.drag()
-                                .on("start", dragstarted)
-                                .on("drag", dragged)
-                                .on("end", dragended));
-
-                          var node = nodes.append("circle")
-                              .attr("r", function (d) { return d.group; })
-                              .attr("fill", function(d) { return color(d.group); });
-
-                          var nodeText = nodes.append('text')
-                              .attr('text-anchor', 'middle')
-                              .attr('alignment-baseline', 'middle')
-                              .style('font-size', function (d) { return (d.group / 3) + "px"; })
-                              .attr('fill', 'white')
-                              .text(d => d.id);
-
-                          node.append("title")
-                              .text(function(d) { return d.id; });
-
-                          simulation
-                              .nodes(graph.nodes)
-                              .on("tick", ticked);
-
-                          simulation.force("link")
-                              .links(graph.links);
-
-                          function ticked() {
-                            link
-                                .attr("x1", function(d) { return d.source.x; })
-                                .attr("y1", function(d) { return d.source.y; })
-                                .attr("x2", function(d) { return d.target.x; })
-                                .attr("y2", function(d) { return d.target.y; });
-
-                            node
-                                .attr("cx", function(d) { return d.x; })
-                                .attr("cy", function(d) { return d.y; });
-
-                            nodeText
-                                .attr("dx", function(d) { return d.x; })
-                                .attr("dy", function(d) { return d.y; });
-                          }
-
-                          function dragstarted(d) {
-                            if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-                            d.fx = d.x;
-                            d.fy = d.y;
-                          }
-
-                          function dragged(d) {
-                            d.fx = d3.event.x;
-                            d.fy = d3.event.y;
-                          }
-
-                          function dragended(d) {
-                            if (!d3.event.active) simulation.alphaTarget(0);
-                            d.fx = null;
-                            d.fy = null;
-                          }
-                        });
-                    </script>
-                  </div>
-                  <!-- <div class="col-sm-6 col-lg-3">
+                <!-- <div class="col-sm-6 col-lg-3">
                     <div class="card">
                       <div class="card-body">
                         <div class="card-value float-right text-green">-3%</div>
@@ -489,9 +339,9 @@
                       });
                     </script>
                   </div> -->
-                </div>
               </div>
-              <!-- <div class="col-lg-6">
+            </div>
+            <!-- <div class="col-lg-6">
                 <div class="card">
                   <div class="card-header">
                     <h3 class="card-title">Development Activity</h3>
@@ -792,8 +642,8 @@
                   </div>
                 </div>
               </div> -->
-            </div>
-            <!-- <div class="row row-cards row-deck">
+          </div>
+          <!-- <div class="row row-cards row-deck">
               <div class="col-lg-6">
                 <div class="card card-aside">
                   <a href="#" class="card-aside-column" style="background-image: url(./demo/photos/david-klaasen-54203-500.jpg)"></a>
@@ -1274,68 +1124,69 @@
                 </div>
               </div>
             </div> -->
-          </div>
         </div>
       </div>
-      <div class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="row">
-                <div class="col-6 col-md-3">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#">First link</a></li>
-                    <li><a href="#">Second link</a></li>
-                  </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#">Third link</a></li>
-                    <li><a href="#">Fourth link</a></li>
-                  </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#">Fifth link</a></li>
-                    <li><a href="#">Sixth link</a></li>
-                  </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#">Other link</a></li>
-                    <li><a href="#">Last link</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 mt-4 mt-lg-0">
-              Premium and Open Source dashboard template with responsive and high quality UI. For Free!
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="footer">
-        <div class="container">
-          <div class="row align-items-center flex-row-reverse">
-            <div class="col-auto ml-lg-auto">
-              <div class="row align-items-center">
-                <div class="col-auto">
-                  <ul class="list-inline list-inline-dots mb-0">
-                    <li class="list-inline-item"><a href="./docs/index.html">Documentation</a></li>
-                    <li class="list-inline-item"><a href="./faq.html">FAQ</a></li>
-                  </ul>
-                </div>
-                <div class="col-auto">
-                  <a href="https://github.com/tabler/tabler" class="btn btn-outline-primary btn-sm">Source code</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
-              Copyright © 2018 <a href=".">Tabler</a>. Theme by <a href="https://codecalm.net" target="_blank">codecalm.net</a> All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
-  </body>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-6 col-md-3">
+                <ul class="list-unstyled mb-0">
+                  <li><a href="#">First link</a></li>
+                  <li><a href="#">Second link</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-3">
+                <ul class="list-unstyled mb-0">
+                  <li><a href="#">Third link</a></li>
+                  <li><a href="#">Fourth link</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-3">
+                <ul class="list-unstyled mb-0">
+                  <li><a href="#">Fifth link</a></li>
+                  <li><a href="#">Sixth link</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-3">
+                <ul class="list-unstyled mb-0">
+                  <li><a href="#">Other link</a></li>
+                  <li><a href="#">Last link</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            Premium and Open Source dashboard template with responsive and high quality UI. For Free!
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+          <div class="col-auto ml-lg-auto">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item"><a href="./docs/index.html">Documentation</a></li>
+                  <li class="list-inline-item"><a href="./faq.html">FAQ</a></li>
+                </ul>
+              </div>
+              <div class="col-auto">
+                <a href="https://github.com/tabler/tabler" class="btn btn-outline-primary btn-sm">Source code</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+            Copyright © 2018 <a href=".">Tabler</a>. Theme by <a href="https://codecalm.net" target="_blank">codecalm.net</a>            All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
 </html>
