@@ -36,6 +36,11 @@
   <script src="./assets/plugins/maps-google/plugin.js"></script>
   <!-- Input Mask Plugin -->
   <script src="./assets/plugins/input-mask/plugin.js"></script>
+
+  <style>
+    .page-header { word-wrap: break-word; }
+    .page-title { overflow: hidden; }
+  </style>
 </head>
 
 <body class="">
@@ -47,7 +52,7 @@
             <a class="header-brand" href="./index.html">
                 Ethereum Stats
               </a>
-            <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
+              <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0 ml-auto" data-toggle="collapse" data-target="#headerMenuCollapse">
                 <span class="header-toggler-icon"></span>
               </a>
           </div>
@@ -69,6 +74,9 @@
                 <li class="nav-item">
                   <a href="./index.html" class="nav-link active"><i class="fe fe-box"></i> Shards</a>
                 </li>
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link"><i class="fe fe-layers"></i> Transactions</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -88,16 +96,10 @@
                   <h3 class="card-title">Address Information</h3>
                 </div>
                 <div class="card-body">
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="h6">Address</div>
-                      <p>0x06012c8cf97BEaD5deAe237070F9587f8E7A266d (CryptoKittiesCore)</p>
-                    </div>
-                    <div class="col-6">
-                      <div class="h6">Shard</div>
-                      <p><a href="shard.html">12</a></p>
-                    </div>
-                  </div>
+                  <div class="h6">Address</div>
+                  <p>0x06012c8cf97BEaD5deAe237070F9587f8E7A266d (CryptoKittiesCore)</p>
+                  <div class="h6">Shard</div>
+                  <p><a href="shard.html">12</a></p>
                   <div class="h6">Balance</div>
                   <p>4.98 Eth</p>
                   <div class="h6">Transactions</div>
@@ -116,7 +118,7 @@
                       <tr>
                         <th>Txn Hash</th>
                         <th>Age</th>
-                        <th>Collation</th>
+                        <th>Period</th>
                         <th>From</th>
                         <th>To</th>
                         <th>Fee</th>

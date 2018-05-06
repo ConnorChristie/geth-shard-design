@@ -47,7 +47,7 @@
             <a class="header-brand" href="./index.html">
                 Ethereum Stats
               </a>
-            <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
+            <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0 ml-auto" data-toggle="collapse" data-target="#headerMenuCollapse">
                 <span class="header-toggler-icon"></span>
               </a>
           </div>
@@ -68,6 +68,9 @@
               <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
                 <li class="nav-item">
                   <a href="./index.html" class="nav-link active"><i class="fe fe-box"></i> Shards</a>
+                </li>
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link"><i class="fe fe-layers"></i> Transactions</a>
                 </li>
               </ul>
             </div>
@@ -320,7 +323,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="card-value float-right text-blue">+6%</div>
-                  <h3 class="mb-1">Collators</h3>
+                  <h3 class="mb-1">Notaries</h3>
                   <div class="text-muted">Last 6 periods</div>
                 </div>
                 <div class="card-chart-bg">
@@ -403,11 +406,11 @@
                   <table id="collations" class="table card-table table-hover table-vcenter text-nowrap">
                     <thead>
                       <tr>
-                        <th class="w-1">Height</th>
+                        <th class="w-1">Period</th>
                         <th>Age</th>
-                        <th>Collator</th>
-                        <th class="text-center">Txns</th>
-                        <th class="text-center">X-Shard Txns</th>
+                        <th>Notary</th>
+                        <th>Txns</th>
+                        <th>X-Shard Txns</th>
                         <th>Avg Gas Price</th>
                         <th>Reward</th>
                       </tr>
@@ -415,14 +418,14 @@
                     <tbody>
                       <tr style="cursor: pointer;">
                         <td><span class="text-muted">8</span></td>
-                        <td>6 secs ago</td>
+                        <td>6 secs</td>
                         <td>
-                          <a href="collator.html">0x384926294083f</a>...
+                          <a href="collator.html">0x384926294083f4b1</a>...
                         </td>
-                        <td class="text-center">
+                        <td>
                           13
                         </td>
-                        <td class="text-center">
+                        <td>
                           4
                         </td>
                         <td>
@@ -434,14 +437,14 @@
                       </tr>
                       <tr style="cursor: pointer;">
                         <td><span class="text-muted">7</span></td>
-                        <td>18 secs ago</td>
+                        <td>18 secs</td>
                         <td>
-                          <a href="collator.html">0x384926294083f</a>...
+                          <a href="collator.html">0x384926294083f4b1</a>...
                         </td>
-                        <td class="text-center">
+                        <td>
                             10
                         </td>
-                        <td class="text-center">
+                        <td>
                             2
                         </td>
                         <td>
@@ -453,14 +456,14 @@
                       </tr>
                       <tr style="cursor: pointer;">
                         <td><span class="text-muted">6</span></td>
-                        <td>29 secs ago</td>
+                        <td>29 secs</td>
                         <td>
-                          <a href="collator.html">0x27959d92a83b9</a>...
+                          <a href="collator.html">0x27959d92a83b384</a>...
                         </td>
-                        <td class="text-center">
+                        <td>
                             29
                         </td>
-                        <td class="text-center">
+                        <td>
                             5
                         </td>
                         <td>
@@ -472,14 +475,14 @@
                       </tr>
                       <tr style="cursor: pointer;">
                         <td><span class="text-muted">5</span></td>
-                        <td>36 secs ago</td>
+                        <td>36 secs</td>
                         <td>
-                          <a href="collator.html">0x384926294083f</a>...
+                          <a href="collator.html">0x384926294083f4b1</a>...
                         </td>
-                        <td class="text-center">
+                        <td>
                             17
                         </td>
-                        <td class="text-center">
+                        <td>
                             3
                         </td>
                         <td>
@@ -494,7 +497,7 @@
                   <script>
                     require(['jquery'], function ($) {
                       $(document).ready(function() {
-                        $("#collations tr").click(() => window.location = 'collation.html');
+                        $("#collations tbody tr").click(() => window.location = 'collation.html');
                       });
                     });
                   </script>
@@ -505,7 +508,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Collators</h3>
+                  <h3 class="card-title">Notaries</h3>
                 </div>
                 <div class="table-responsive">
                   <table class="table card-table table-hover table-vcenter text-nowrap">
@@ -529,7 +532,7 @@
                           6 secs ago
                         </td>
                         <td>
-                          7.45 Eth
+                          1,000 Eth
                         </td>
                       </tr>
                       <tr>
@@ -543,7 +546,7 @@
                           29 secs ago
                         </td>
                         <td>
-                          2.12 Eth
+                          1,000 Eth
                         </td>
                       </tr>
                     </tbody>

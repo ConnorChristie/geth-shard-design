@@ -36,6 +36,11 @@
   <script src="./assets/plugins/maps-google/plugin.js"></script>
   <!-- Input Mask Plugin -->
   <script src="./assets/plugins/input-mask/plugin.js"></script>
+
+  <style>
+    .page-header { word-wrap: break-word; }
+    .page-title { overflow: hidden; }
+  </style>
 </head>
 
 <body class="">
@@ -47,7 +52,7 @@
             <a class="header-brand" href="./index.html">
                 Ethereum Stats
               </a>
-            <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
+              <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0 ml-auto" data-toggle="collapse" data-target="#headerMenuCollapse">
                 <span class="header-toggler-icon"></span>
               </a>
           </div>
@@ -67,7 +72,10 @@
             <div class="col-lg order-lg-first">
               <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
                 <li class="nav-item">
-                  <a href="./index.html" class="nav-link active"><i class="fe fe-box"></i> Shards</a>
+                  <a href="./index.html" class="nav-link"><i class="fe fe-box"></i> Shards</a>
+                </li>
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link active"><i class="fe fe-layers"></i> Transactions</a>
                 </li>
               </ul>
             </div>
@@ -79,6 +87,7 @@
           <div class="page-header">
             <h1 class="page-title">
               Transaction 0xf4fd25c305117227e9437c912cb60365f676464e6fc9ee6f6537f9526553378c
+              <span class="text-muted"> &mdash; Shard 12</span>
             </h1>
           </div>
           <div class="row row-cards row-deck">
@@ -89,35 +98,126 @@
                 </div>
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-6">
+                    <div class="col-lg-6">
                       <div class="h6">Hash</div>
                       <p>0xf4fd25c305117227e9437c912cb60365f676464e6fc9ee6f6537f9526553378c</p>
-                    </div>
-                    <div class="col-3">
                       <div class="h6">Shard</div>
                       <p><a href="shard.html">12</a></p>
-                    </div>
-                    <div class="col-3">
-                      <div class="h6">Collation</div>
+                      <div class="h6">Period</div>
                       <p><a href="collation.html">8</a></p>
+                      <div class="h6">Gas Limit</div>
+                      <p>41,000</p>
+                      <div class="h6">Gas Used</div>
+                      <p>21,000</p>
+                      <div class="h6">Gas Price</div>
+                      <p>8 Gwei</p>
+                      <div class="h6">Fee</div>
+                      <p>0.00021726 Eth</p>
                     </div>
-                    <div class="col-6">
-                      <div class="h6">From</div>
-                      <p><a href="shard.html">Shard 17</a> &mdash; <a href="address.html">0x0d41f957181e584db82d2e316837b2de1738c477</a></p>
-                    </div>
-                    <div class="col-6">
-                      <div class="h6">To</div>
-                      <p><a href="address.html">0x06012c8cf97bead5deae237070f9587f8e7a266d</a> (CryptoKittiesCore)</p>
+                    <div class="col-lg-6">
+                      <div class="progress-bar-wrapper">
+                        <div class="multistep-status-bar">
+                          <div class="current-status" style="height: 100%;"></div>
+                        </div>
+                        <ul class="multistep-progress-bar">
+                          <li class="section visited">
+                            <i class="fe fe-check"></i>
+                            <div class="h6">Originator</div>
+                            <p><a href="">0x0d41f957181e584db82d2e316837b2de1738c477</a></p>
+                          </li>
+                          <li class="section visited">
+                            <i class="fe fe-check"></i>
+                            <div class="h6">From Shard 17</div>
+                            <p><a href="">0x1e7d8b09933b2253f355dabae303a016cb9772af249a719dd4d7cb96f38c55e0</a></p>
+                          </li>
+                          <li class="section visited">
+                            <i class="fe fe-check"></i>
+                            <div class="h6">To Shard 12</div>
+                            <p>Current</p>
+                          </li>
+                          <li class="section visited current">
+                            <i class="fe fe-check"></i>
+                            <div class="h6">Destination</div>
+                            <p><a href="address.html">0x06012c8cf97bead5deae237070f9587f8e7a266d</a> (CryptoKittiesCore)</p>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <style>
+                        .progress-bar-wrapper {
+                          height: 100%;
+                          padding-right: 4px;
+                        }
+
+                        ul.multistep-progress-bar {
+                          height: 100%;
+                          padding: 0;
+                          list-style: none;
+                          margin-right: 20px;
+                        }
+
+                        li.section {
+                          height: 25%;
+                          padding-top: 7px;
+                          padding-right: 15px;
+                          line-height: 16px;
+                          vertical-align: top;
+                          position: relative;
+                          text-overflow: ellipsis;
+                          text-align: right;
+                        }
+
+                        li.section .fe {
+                          position: absolute;
+                          right: -26px;
+                          top: 0;
+                          z-index: 1;
+                          width: 30px;
+                          height: 30px;
+                          color: white;
+                          border: 2px solid white;
+                          border-radius: 17px;
+                          line-height: 27px;
+                          background: gray;
+                          text-align: center;
+                        }
+
+                        .multistep-status-bar {
+                          width: 2px;
+                          height: 78%;
+                          right: 24px;
+                          background: gray;
+                          position: absolute;
+                        }
+
+                        .current-status {
+                          height: 0;
+                          width: 2px;
+                          border-radius: 1px;
+                          background: mediumseagreen;
+                          transition: height 4500ms linear;
+                        }
+
+                        @keyframes changeBackground {
+                          from {
+                            background: gray
+                          }
+                          to {
+                            background: mediumseagreen
+                          }
+                        }
+
+                        li.section.visited .fe {
+                          animation: changeBackground .5s linear;
+                          animation-fill-mode: forwards;
+                        }
+
+                        li.section.visited.current .fe {
+                          box-shadow: 0 0 0 2px mediumseagreen;
+                        }
+                      </style>
                     </div>
                   </div>
-                  <div class="h6">Gas Limit</div>
-                  <p>41,000</p>
-                  <div class="h6">Gas Used</div>
-                  <p>21,000</p>
-                  <div class="h6">Gas Price</div>
-                  <p>8 Gwei</p>
-                  <div class="h6">Fee</div>
-                  <p>0.00021726 Eth</p>
                 </div>
               </div>
             </div>
@@ -131,6 +231,7 @@
                     <thead>
                       <tr>
                         <th>Receipt</th>
+                        <th>Shard</th>
                         <th>Txn</th>
                         <th>From</th>
                         <th>To</th>
@@ -142,7 +243,10 @@
                           0x2036e389728a3
                         </td>
                         <td>
-                          <a href="shard.html">Shard 17</a> &mdash; <a href="txn.html">0x8e8a4bc77999d4c0234</a>...
+                          <a href="shard.html">17</a>
+                        </td>
+                        <td>
+                          <a href="txn.html">0x8e8a4bc77999d4c0234</a>...
                         </td>
                         <td>
                           <a href="shard.html">Shard 17</a> &mdash; <a href="address.html">0x0d41f957181e584</a>...

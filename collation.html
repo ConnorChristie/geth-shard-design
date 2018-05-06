@@ -47,7 +47,7 @@
             <a class="header-brand" href="./index.html">
                 Ethereum Stats
               </a>
-            <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
+            <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0 ml-auto" data-toggle="collapse" data-target="#headerMenuCollapse">
                 <span class="header-toggler-icon"></span>
               </a>
           </div>
@@ -68,6 +68,9 @@
               <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
                 <li class="nav-item">
                   <a href="./index.html" class="nav-link active"><i class="fe fe-box"></i> Shards</a>
+                </li>
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link"><i class="fe fe-layers"></i> Transactions</a>
                 </li>
               </ul>
             </div>
@@ -198,7 +201,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-lg-6 col-sm-12">
               <div class="card">
                 <div class="card-status bg-blue"></div>
                 <div class="card-header">
@@ -241,7 +244,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-lg-6 col-sm-12">
               <div class="card">
                 <div class="card-status bg-teal"></div>
                 <div class="card-header">
@@ -286,13 +289,13 @@
             </div>
           </div>
           <div class="row row-cards">
-            <div class="col-3">
+            <div class="col-lg-3 col-sm-12">
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">Cross-Shard Interactions</h3>
                 </div>
                 <div class="card-body">
-                  <div id="chart-cross-comm" style="height: 100%;"></div>
+                  <div id="chart-cross-comm" style="width: 100%;"></div>
                 </div>
               </div>
               <style>
@@ -302,7 +305,7 @@
                 }
 
                 .group {
-                  font: 10px sans-serif;
+                  font-size: 10px;
                 }
 
                 .group path {
@@ -310,12 +313,22 @@
                 }
 
                 path.chord {
-                  stroke: #000;
+                  stroke: rgba(0, 0, 0, 0.2);
                   stroke-width: .25px;
                 }
 
-                #circle:hover path.fade {
-                  display: none;
+                path.fademe {
+                  opacity: 1;
+                  transition: opacity 0.1s linear;
+                }
+
+                #circle:hover path.fademe {
+                  opacity: 0;
+                  transition: opacity 0.1s linear;
+                }
+
+                .axis path, .axis line {
+                  shape-rendering: crispEdges;
                 }
               </style>
               <script>
@@ -323,7 +336,7 @@
                   var width = 225,
                     height = 225,
                     outerRadius = Math.min(width, height) / 2 - 10,
-                    innerRadius = outerRadius - 24;
+                    innerRadius = outerRadius - 20;
 
                   var formatPercent = d3.format(".1%");
 
@@ -340,8 +353,8 @@
                     .radius(innerRadius);
 
                   var svg = d3.select("#chart-cross-comm").append("svg")
-                    .attr("width", width)
-                    .attr("height", height)
+                    .attr("width", "100%")
+                    .attr('viewBox', '0 0 225 225')
                     .append("g")
                     .attr("id", "circle")
                     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -350,10 +363,10 @@
                     .attr("r", outerRadius);
 
                   var shards = [
-                    { name: "Shard 43", color: "rgb(117, 107, 177)" },
-                    { name: "Shard 3", color: "rgb(49, 163, 84)" },
-                    { name: "Shard 85", color: "rgb(107, 174, 214)" },
-                    { name: "Shard 22", color: "rgb(253, 174, 107)" }
+                    { name: "Shard 43 (Current)", color: "rgb(49, 163, 84)" },
+                    { name: "Shard 3", color: "rgb(55, 126, 184)" },
+                    { name: "Shard 85", color: "rgb(55, 126, 184)" },
+                    { name: "Shard 22", color: "rgb(55, 126, 184)" }
                   ];
 
                   d3.csv("https://bost.ocks.org/mike/uberdata/cities.csv", function (error, cities) {
@@ -384,7 +397,7 @@
                       // Add a text label.
                       var groupText = group.append("text")
                         .attr("x", 6)
-                        .attr("dy", 15);
+                        .attr("dy", 13);
 
                       groupText.append("textPath")
                         .attr("xlink:href", function (d, i) { return "#group" + i; })
@@ -413,7 +426,7 @@
                       });
 
                       function mouseover(d, i) {
-                        chord.classed("fade", function (p) {
+                        chord.classed("fademe", function (p) {
                           return p.source.index != i
                             && p.target.index != i;
                         });
